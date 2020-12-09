@@ -6,13 +6,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
-
-    if @question.save
-      redirect_to user_path(@question.user), notice: 'Вопрос задан'
-    else
-      render :new
-    end
+     @question = Question.new(question_params)
+      if @question.save
+        redirect_to user_path(@question.user), notice: 'Вопрос задан'
+      else
+        render :edit
+      end
   end
 
   def update
