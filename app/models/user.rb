@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
 
   has_many :questions
+  before_validation :username_downcase, :email_downcase
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
@@ -36,6 +37,7 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(email, password)
+    email&.downcase!
     user = find_by(email: email)
 
     return nil unless user.present?
@@ -49,5 +51,15 @@ class User < ActiveRecord::Base
     return user if user.password_hash == hashed_password
 
     nil
+  end
+
+  private 
+
+  def username_downcase
+    username&.downcase!
+  end
+
+  def email_downcase
+    email&.downcase!
   end
 end
