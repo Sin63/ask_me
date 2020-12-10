@@ -12,8 +12,8 @@ class User < ActiveRecord::Base
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
   validates :password, presence: true, on: :create
-  validates :username, length: { maximum: 20 }, format: { with: /\A[a-zA-Z0-9_]+\z/ }
-  validates :email, format: { with: /.+@.+\..+/i }
+  validates :username, length: { maximum: 40 }, format: { with: /\A[a-zA-Z0-9_]+\z/ }
+  validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i}
 
   validates_confirmation_of :password
 
