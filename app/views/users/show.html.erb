@@ -29,6 +29,21 @@
   </div>
 </div>
 
+<%# Выводим счетчики вопросов. %>
+  <div class="user-statistics container text-center">
+    <div class="column-1-3">
+      <h1 class="title-small"><%= @questions_count %></h1>
+      <p><%= inclination(@questions_count, 'Вопрос', 'Вопроса', 'Вопросов') %></p>
+    </div>
+    <div class="column-1-3">
+      <h1 class="title-small"><%= @answers_count %></h1>
+      <p><%= inclination(@answers_count, 'Ответ', 'Ответа', 'Ответов') %></p>
+    </div>
+    <div class="column-1-3">
+      <h1 class="title-small"><%= @unanswered_count %></h1>
+      <p><%= inclination(@unanswered_count, 'Неотвеченный', 'Неотвеченных', 'Неотвеченных') %></p>
+    </div>
+
 <%# Блок с формой для задавания пользователю вопроса %>
 <div class="user-question-form-div column-1-4 column-1-4-right" id='ask-form'>
   <div class="user-question-form buffer-both">

@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   # тех, у кого вообще нет аккаунта на нашем сайте.
   # before_action :authorize_user, except: [:index, :new, :create, :show]
 
-
   def index
     @users = User.all
   end
@@ -99,6 +98,11 @@ class UsersController < ApplicationController
     # создаем болванку вопроса, вызывая метод build у результата вызова метода
     # @user.questions.
     @new_question = @user.questions.build
+    
+    @questions_count = @questions.count
+    @answers_count = @questions.where.not(answer: nil).count
+    @unanswered_count = @questions_count - @answers_count
+  
   end
 
   private
