@@ -36,9 +36,8 @@ class User < ActiveRecord::Base
     password_hash.unpack('H*')[0]
   end
 
-  def self.authenticate(email, password)
-    email&.downcase!
-    user = find_by(email: email)
+    def self.authenticate(email, password)
+    user = find_by(email: email&.downcase)
 
     return nil unless user.present?
 
@@ -49,7 +48,6 @@ class User < ActiveRecord::Base
     )
 
     return user if user.password_hash == hashed_password
-
     nil
   end
 
