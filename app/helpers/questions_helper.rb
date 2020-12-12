@@ -1,5 +1,4 @@
 module QuestionsHelper
-
   def inclination(num, slon, slona, slonov)
     div10 = num % 10
     div100 = num % 100
@@ -10,6 +9,6 @@ module QuestionsHelper
     # форма сущ. для чисел заканчивающихся на 2, 3, 4 (кроме 12, 13, 14, см. выше)
     return slona if [2, 3, 4].include?(div10)
     # форма множественного числа для всех остальных случаев
-    return slonov
+    slonov
   end
 end
