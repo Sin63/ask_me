@@ -104,6 +104,12 @@ class UsersController < ApplicationController
     @unanswered_count = @questions_count - @answers_count
   end
 
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    redirect_to root_path, alert: 'Пользователь удален!'
+  end
+
   private
 
   # Если загруженный из базы юзер и текущий залогиненный не совпадают — посылаем

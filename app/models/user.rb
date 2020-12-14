@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 
   attr_accessor :password
 
-  has_many :questions
+  # has_many :questions, dependent: :destroy
+  has_many :questions, dependent: :delete_all
   before_validation :username_downcase, :email_downcase
   before_save :encrypt_password
 
