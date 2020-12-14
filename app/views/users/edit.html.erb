@@ -49,7 +49,7 @@
 
       <div class="form-field">
         <%= f.label 'Цвет фона профиля', class: 'form-label' %>
-        <%= f.color_field :profile_color, class: 'form-text-field' %>
+        <%= f.color_field :profile_color, class: 'form-field' %>
       </div>
 
       <div class="buffer-top-lach buffer-bottom">
@@ -62,12 +62,12 @@
       </div>
 
       <div class="form-field">
-        <%= f.label :password_confirmation, 'Пароль ещё раз', class: 'form-label' %>
+        <%= f.label :password_confirmation, 'Повторите пароль', class: 'form-label' %>
         <%= f.password_field :password_confirmation, class: 'form-text-field' %>
       </div>
 
       <div class="form-action">
-        <%= f.submit 'Зарегистрироваться', class: 'button button-small button-dark' %>
+        <%= f.submit 'Сохранить изменения', class: 'button button-small button-dark' %>
       </div>
     <% end %>
 
