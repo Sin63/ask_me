@@ -4,9 +4,18 @@
 
 <div class="question">
   <div class="question-content">
+    
     <%# Текст вопроса %>
     <div class="question-text text-lead">
       <%= question.text %>
+    </div>
+
+    <div class="question-author">
+      <% if question.author.present? %>
+        <%= link_to question.author.username, user_path(question.author)  %>
+      <% else %>
+        <p>Аноним</p>
+      <% end %>
     </div>
 
     <%# Текст ответа, если он есть %>
