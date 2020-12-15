@@ -23,13 +23,13 @@ class QuestionsController < ApplicationController
     end
   end
 
- def destroy
-  # Перед тем, как удалять вопрос, сохраним пользователя, чтобы знать, куда
-  # редиректить после удаления
-  user = @question.user
-  @question.destroy
-  redirect_to user_path(user), notice: 'Вопрос удален'
-end
+  def destroy
+    # Перед тем, как удалять вопрос, сохраним пользователя, чтобы знать, куда
+    # редиректить после удаления
+    user = @question.user
+    @question.destroy
+    redirect_to user_path(user), notice: 'Вопрос удален'
+  end
 
   private
    

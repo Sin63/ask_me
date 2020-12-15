@@ -1,7 +1,6 @@
 <%# Это фрагмет (паршал, partial) для вывода вопроса. В нем определена %>
 <%# локальная переменная question, в которую при вызове будет передан %>
 <%# как в метод ruby объект после ключа (object: @question) %>
-
 <div class="question">
   <div class="question-content">
     
@@ -11,8 +10,9 @@
     </div>
 
     <div class="question-author">
-      <% if question.author.present? %>
-        <%= link_to question.author.username, user_path(question.author)  %>
+    <% qa = question.author %>
+      <% if qa.present? %>
+        <%= link_to qa.username, user_path(qa)  %>
       <% else %>
         <p>Аноним</p>
       <% end %>
@@ -35,7 +35,7 @@
   <%# и отвечать на него %>
   <% if question.user == current_user %>
     <%# Определяем какая будет иконка, если у вопроса нет ответа, то иконка %>
-    <%# овтета на письмо, иначе — карандашик %>
+    <%# ответа на письмо, иначе — карандашик %>
   <% edit_icon = question.answer.blank? ? 'reply' : 'pencil' %>
 
   <div class="question-actions">
