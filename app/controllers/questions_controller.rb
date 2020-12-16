@@ -31,17 +31,17 @@ class QuestionsController < ApplicationController
     redirect_to user_path(user), notice: 'Вопрос удален'
   end
 
-  private
-   
-    def load_question
-      @question = Question.find(params[:id])
-    end
+private
 
-    def authorize_user
-      reject_user unless @question.user == current_user
-    end
+  def load_question
+     @question = Question.find(params[:id])
+  end
 
-    def question_params
-      params.require(:question).permit(:user_id, :text, :answer)
-    end
+  def authorize_user
+    reject_user unless @question.user == current_user
+  end
+
+  def question_params
+    params.require(:question).permit(:user_id, :text, :answer)
+  end
 end
