@@ -6,13 +6,13 @@ class QuestionsController < ApplicationController
   end
 
   def create
-     @question = Question.new(question_params)
-     @question.author = current_user
-      if @question.save
-        redirect_to user_path(@question.user), notice: 'Вопрос задан'
-      else
-        render :edit
-      end
+    @question = Question.new(question_params)
+    @question.author = current_user
+    if @question.save
+      redirect_to user_path(@question.user), notice: 'Вопрос задан'
+    else
+      render :edit
+    end
   end
 
   def update
@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
 private
 
   def load_question
-     @question = Question.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def authorize_user
