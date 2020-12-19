@@ -32,7 +32,6 @@ class QuestionsController < ApplicationController
   end
 
 private
-
   def load_question
     @question = Question.find(params[:id])
   end

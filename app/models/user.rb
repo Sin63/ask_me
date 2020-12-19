@@ -1,7 +1,7 @@
 require 'openssl'
 
 # Модель пользователя.
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
   EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
@@ -39,7 +39,6 @@ class User < ActiveRecord::Base
   end
 
   private
-
   def encrypt_password
     if password.present?
       self.password_salt = User.hash_to_string(OpenSSL::Random.random_bytes(16))
