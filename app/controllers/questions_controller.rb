@@ -31,7 +31,8 @@ class QuestionsController < ApplicationController
     redirect_to user_path(user), notice: 'Вопрос удален'
   end
 
-private
+  private
+  
   def load_question
     @question = Question.find(params[:id])
   end
