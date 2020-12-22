@@ -39,6 +39,7 @@ class User < ApplicationRecord
   end
 
   private
+  
   def encrypt_password
     if password.present?
       self.password_salt = User.hash_to_string(OpenSSL::Random.random_bytes(16))
