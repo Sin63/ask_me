@@ -39,6 +39,7 @@ class UsersController < ApplicationController
     # метод user_params.
     @user = User.new(user_params)
 
+    
     # Пытаемся сохранить пользователя.
     if @user.save
       # Если удалось, отправляем пользователя на главную с сообщение, что
@@ -129,7 +130,9 @@ class UsersController < ApplicationController
   # ключами: :email, :password, :password_confirmation, :name, :username и
   # :avatar_url. Другие ключи будут отброшены.
   def user_params
+    if @user == current_user
     params.require(:user).permit(:email, :password, :password_confirmation,
                                  :name, :username, :avatar_url, :profile_color)
+    end
   end
 end
