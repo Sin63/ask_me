@@ -34,6 +34,7 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'sqlite3', '~> 1.4'
+  gem 'ffaker'
 end
 
 group :development do
