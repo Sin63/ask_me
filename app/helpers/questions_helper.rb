@@ -1,4 +1,11 @@
 module QuestionsHelper
+
+  def text_with_hashtag_link(text)
+    text.gsub(Hashtag::REGEXP) do |ht|
+      link_to ht, hashtag_path(ht.delete('#').downcase)
+    end.html_safe
+  end
+
   def inclination(num, slon, slona, slonov)
     div10 = num % 10
     div100 = num % 100
