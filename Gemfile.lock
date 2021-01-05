@@ -65,7 +65,9 @@ GEM
     crass (1.0.6)
     erubi (1.10.0)
     execjs (2.7.0)
+    ffaker (2.17.0)
     ffi (1.13.1)
+    foreman (0.87.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.5)
@@ -180,6 +182,8 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
+  ffaker
+  foreman
   listen (~> 3.2)
   pg
   pry-rails
