@@ -1,7 +1,7 @@
 User.create!(
-  name: 'Эдем',
-  username: 'edem',
-  email: 'edem@edem.edem',
+  name: 'Mike',
+  username: 'mike',
+  email: 'mike@mail.com',
   password: '0000'
 )
 

@@ -2,7 +2,7 @@
   <div class="question-content">    
     <%# Текст вопроса %>
     <div class="question-text text-lead">
-      <%=  text_with_hashtag_link(question.text) %>
+      <%= text_with_hashtag_link(question.text) %>
     </div>
 
     <div class="question-author">
@@ -17,7 +17,7 @@
     <%# Текст ответа, если он есть %>
     <% if question.answer.present? %>
       <div class="question-answer text-lead">
-        <%=  text_with_hashtag_link(question.answer) %>
+        <%= text_with_hashtag_link(question.answer) %>
       </div>
     <% end %>
 
